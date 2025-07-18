@@ -5,6 +5,20 @@
 
 QPythonDocx::QPythonDocx()
 {
+    static py::scoped_interpreter guard {};
+    try {
+        _docxModule = py::module::import("docx");
+        _shared = py::module::import("docx.shared");
+        _docx_enum = py::module::import("docx.enum.text");
+        _oxml_ns = py::module::import("docx.oxml.ns");
+        _document = _docxModule.attr("Document")();
+    } catch (py::error_already_set& e) {
+        qDebug() << e.what();
+    } catch (const std::exception& e) {
+        qDebug() << e.what();
+    } catch (...) {
+        qDebug() << "unknown exception";
+    }
 }
 
 void QPythonDocx::addParagraphText(const TextItemData& item, const py::object& paragraph)

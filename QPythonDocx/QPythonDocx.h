@@ -39,10 +39,12 @@ public:
     py::object addParagraph();
 
 private:
-    py::module _docxModule = py::module::import("docx");
-    py::module _shared = py::module::import("docx.shared");
-    py::module _docx_enum = py::module::import("docx.enum.text");
-    py::module _oxml_ns = py::module::import("docx.oxml.ns");
+    py::module _docxModule;
+    py::module _shared;
+    py::module _docx_enum;
+    py::module _oxml_ns;
 
-    py::object _document = _docxModule.attr("Document")();
+    py::object _document;
+
+    constexpr static const int TABLEGRIDHEIGHT = 10;
 };

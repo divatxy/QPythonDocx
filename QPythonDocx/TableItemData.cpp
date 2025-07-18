@@ -53,11 +53,10 @@ TableData::TableData(QObject* parent)
 {
 }
 
-TableData::TableData(int rows, int columns, double height, QList<QList<TextItemData>> cellItems, QList<MergeItemData> mergeCellItems)
+TableData::TableData(int rows, int columns, QList<QList<TextItemData>> cellItems, QList<MergeItemData> mergeCellItems)
 {
     this->setRows(rows);
     this->setColumns(columns);
-    this->setHeight(height);
     this->setCellItems(cellItems);
     this->setMergeCellItems(mergeCellItems);
 }

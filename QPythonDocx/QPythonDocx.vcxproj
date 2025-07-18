@@ -77,6 +77,9 @@
     <Link>
       <AdditionalDependencies>$(PYTHON_DEBUG_LIB);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>

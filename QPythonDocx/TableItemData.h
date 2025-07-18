@@ -12,7 +12,7 @@ class QPYTHONDOCX_EXPORT TableData : public QObject {
 public:
     TableData(QObject* parent = nullptr);
 
-    TableData(int rows, int columns, double height, QList<QList<TextItemData>> cellItems, QList<MergeItemData> mergeCellItems);
+    TableData(int rows, int columns, QList<QList<TextItemData>> cellItems, QList<MergeItemData> mergeCellItems = {});
 
     ~TableData();
 
@@ -44,7 +44,7 @@ private:
     QList<MergeItemData> _mergeCellItems;
 };
 
-class QPYTHONDOCX_EXPORT MergeItemData : public QObject{
+class QPYTHONDOCX_EXPORT MergeItemData : public QObject {
     Q_OBJECT
 
 public:
